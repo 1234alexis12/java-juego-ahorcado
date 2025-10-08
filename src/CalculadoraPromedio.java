@@ -152,7 +152,7 @@ public class CalculadoraPromedio {
         double porcentajeAprobadas = (materiasAprobadas * 100.0) / numeroMaterias;
         System.out.printf("\n📊 Porcentaje de aprobación: %.1f%%\n", porcentajeAprobadas);
         
-        // Cierra el Scanner para liberar recursos del sistema
+        // Cierra el Scanner para liberar recursos del sistemas
         entrada.close();
         
         System.out.println("\n¡Gracias por usar el sistema! 👋");
