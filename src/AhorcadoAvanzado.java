@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class AhorcadoAvanzado {
-    // ========== CONSTANTES DEL SISTEMA ==========
+    // ========== CONSTANTES DEL SISTEMA 1 ==========
     // Número máximo de intentos fallidos permitidos
     private static final int INTENTOS_MAXIMOS = 6;
     // Número máximo de palabras en la base de datos
