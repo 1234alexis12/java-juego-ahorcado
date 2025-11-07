@@ -1,12 +1,19 @@
+
+import java.util.Scanner;
+
 public class notequals {
     public static void main(String[] args) {
-        int a = 5;
-        int b = 10;
-
-        if (a != b) {
-            System.out.println("a is not equal to b");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+        if (num1 != num2) {
+            System.out.println("The numbers are not equal.");
         } else {
-            System.out.println("a is equal to b");
+            System.out.println("The numbers are equal.");
         }
+        scanner.close();
+        
     }
 }
