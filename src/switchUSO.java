@@ -31,5 +31,6 @@ public class switchUSO {
         }
 
         System.out.println("El día correspondiente al número " + numero + " es: " + dia);
+        
     }
 }
