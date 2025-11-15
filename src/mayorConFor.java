@@ -20,5 +20,6 @@ public class mayorConFor {
         }
 
         System.out.println("El número mayor es: " + mayor);
+        System.out.println("Programa finalizado.");
     }
 }
