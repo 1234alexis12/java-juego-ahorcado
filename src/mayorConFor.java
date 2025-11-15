@@ -1,7 +1,7 @@
 public class mayorConFor {
     public static void main(String[] args) {
         if (args.length < 3) {
-            System.out.println("Por favor, proporciona al menos tres números como argumentos.");
+            System.out.println("Por favor, proporciona al menos tres números:");
             return;
         }
 
