@@ -1,3 +1,4 @@
+
 public class matrizDobleScanner {
     public static void main(String[] args) {
         if (args.length < 4) {
@@ -20,7 +21,7 @@ public class matrizDobleScanner {
             }
         }
 
-        System.out.println("La matriz 2x2 es:");
+        System.out.println("Matriz 2x2:");
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
                 System.out.print(matriz[i][j] + " ");
@@ -28,6 +29,6 @@ public class matrizDobleScanner {
             System.out.println();
         }
 
-        System.out.println("Programa finalizado.");
+        System.out.println("Programa finalizado..................");
     }
 }
