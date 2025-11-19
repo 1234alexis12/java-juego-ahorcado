@@ -1,4 +1,4 @@
-name: Generador de Ejercicios en Java
+name: Test Simple
 
 on:
   push:
@@ -7,85 +7,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  generar-ejercicios:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del repositorio
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Instalar Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Crear generador en Java
+      - name: Crear archivo simple
         run: |
-          mkdir -p scripts
-          cat << 'EOF' > scripts/Generador.java
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+          echo "Hola desde GitHub Actions" > archivo.txt
 
-public class Generador {
-
-    public static void main(String[] args) {
-        String[][] ejercicios = {
-            {"SumaNumeros", "Calcular la suma de los primeros 100 números enteros."},
-            {"NumeroPrimo", "Determinar si un número es primo."},
-            {"Fibonacci", "Generar la serie Fibonacci hasta un límite."},
-            {"ReversaCadena", "Invertir una cadena sin usar funciones integradas."},
-            {"MaximoLista", "Encontrar el número mayor en una lista."}
-        };
-
-        File carpeta = new File("ejercicios");
-        carpeta.mkdirs();
-
-        for (String[] ej : ejercicios) {
-            String nombre = ej[0];
-            String descripcion = ej[1];
-
-            String contenido =
-                "public class " + nombre + " {\n" +
-                "    public static void main(String[] args) {\n" +
-                "        // Ejercicio de lógica:\n" +
-                "        // " + descripcion + "\n\n" +
-                "        // Escribe aquí tu solución:\n" +
-                "    }\n" +
-                "}";
-
-            try {
-                FileWriter fw = new FileWriter("ejercicios/" + nombre + ".java");
-                fw.write(contenido);
-                fw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        System.out.println("✔ Clases Java generadas correctamente.");
-    }
-}
-EOF
-
-      - name: Compilar generador
-        run: javac scripts/Generador.java
-
-      - name: Ejecutar generador
-        run: java -cp scripts Generador
-
-      - name: Configurar Git
+      - name: Commit
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-
-      - name: Commit y push de clases generadas
-        run: |
-          git add ejercicios/*.java
+          git add archivo.txt
           if git diff --cached --quiet; then
-            echo "No hay cambios nuevos."
+            echo "No hay cambios."
           else
-            git commit -m "Auto-generación de clases Java con ejercicios de lógica"
+            git commit -m "Creación de archivo de prueba"
             git push
           fi
