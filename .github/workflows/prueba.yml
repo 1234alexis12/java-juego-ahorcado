@@ -1,0 +1,31 @@
+name: Test Simple
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Crear archivo simple
+        run: |
+          echo "Hola desde GitHub Actions" > archivo.txt
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add archivo.txt
+          if git diff --cached --quiet; then
+            echo "No hay cambios."
+          else
+            git commit -m "Creación de archivo de prueba"
+            git push
+          fi
